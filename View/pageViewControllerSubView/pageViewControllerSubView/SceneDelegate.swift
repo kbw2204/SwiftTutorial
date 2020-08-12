@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  pageViewController
+//  pageViewControllerSubView
 //
-//  Created by 강병우 on 2020/07/01.
+//  Created by 강병우 on 2020/08/12.
 //  Copyright © 2020 강병우. All rights reserved.
 //
 
@@ -14,10 +14,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard let winScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(frame: winScene.coordinateSpace.bounds)
-        window?.windowScene = winScene
-        window?.rootViewController = PageViewController2()
+        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
+        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
+        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+        guard let windowScene = (scene as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        window?.rootViewController = ViewController()
         window?.makeKeyAndVisible()
     }
 

@@ -64,8 +64,6 @@ class PageView: UIView {
             pageViewController.view.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             pageViewController.view.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
         ])
-        
-        
     }
     
     required init?(coder: NSCoder) {
