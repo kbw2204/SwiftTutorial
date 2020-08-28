@@ -8,10 +8,9 @@
 
 import UIKit
 
-import Then
 import SnapKit
 import RxCocoa
-import RxDataSources
+//import RxDataSources
 import RxSwift
 
 class ViewController: UIViewController {
@@ -43,27 +42,18 @@ class ViewController: UIViewController {
         view.addSubview(tableView)
     }
     
-//    func bindTableView() {
-//        let citis = ["test1", "test2", "test3"]
-//        let citiesOb: Observable<[String]> = Observable.of(citis)
-//        citiesOb.bind(to: tableView.rx.items) { (tableView: UITableView, index: Int, element: String) -> TableViewCell in
-//            if let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "\(TableViewCell.self)") as? TableViewCell {
-//                cell.titleLabel.text = element
-//                return cell
-//            }
-//            return TableViewCell()
-//        }.disposed(by: disposBag)
-//    }
-    
     func bindTableView() {
-        let firstItems = ["test1","test2", "test3"]
-        let secondItems = ["Ipad", "Iphone", "MacBook"]
-        
-        let section = [
-            SectionModel<String, String>(
-        ]
-        
+        let citis = ["test1", "test2", "test3"]
+        let citiesOb: Observable<[String]> = Observable.of(citis)
+        citiesOb.bind(to: tableView.rx.items) { (tableView: UITableView, index: Int, element: String) -> TableViewCell in
+            if let cell: TableViewCell = tableView.dequeueReusableCell(withIdentifier: "\(TableViewCell.self)") as? TableViewCell {
+                cell.titleLabel.text = element
+                return cell
+            }
+            return TableViewCell()
+        }.disposed(by: disposBag)
     }
+    
 }
 
 //extension ViewController: UITableViewDataSource {

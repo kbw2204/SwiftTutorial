@@ -1,0 +1,21 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'rxSwiftTableViewTutorial' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for rxSwiftTableViewTutorial
+    pod 'RxSwift', '~> 5'
+    pod 'RxCocoa', '~> 5'
+    pod 'SnapKit', '~> 5.0.0'
+    pod 'Then'
+pod 'ReusableKit'
+pod 'ReusableKit/RxSwift'  # with RxSwift extension
+pod 'RxDataSources'
+  target 'rxSwiftTableViewTutorialTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
