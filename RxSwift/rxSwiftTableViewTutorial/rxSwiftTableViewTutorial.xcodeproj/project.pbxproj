@@ -19,6 +19,7 @@
 		55330F9124F7E73D002D94C1 /* ViewControllerUsingRxDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55330F9024F7E73D002D94C1 /* ViewControllerUsingRxDataSource.swift */; };
 		55330F9724F7E906002D94C1 /* SectionOfCustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55330F9624F7E906002D94C1 /* SectionOfCustomData.swift */; };
 		55330F9924F7E975002D94C1 /* CustomData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55330F9824F7E975002D94C1 /* CustomData.swift */; };
+		558007362508054500EE26A7 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558007352508054500EE26A7 /* CustomCell.swift */; };
 		F5984269522645CD133FC7F0 /* Pods_rxSwiftTableViewTutorialTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 568F1C194350AFB9E210ABBD /* Pods_rxSwiftTableViewTutorialTests.framework */; };
 		F91FD8CD9EB50C3866894AAD /* Pods_rxSwiftTableViewTutorial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB3CD85BAF4ABFC6CD9D8478 /* Pods_rxSwiftTableViewTutorial.framework */; };
 /* End PBXBuildFile section */
@@ -52,6 +53,7 @@
 		55330F9024F7E73D002D94C1 /* ViewControllerUsingRxDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUsingRxDataSource.swift; sourceTree = "<group>"; };
 		55330F9624F7E906002D94C1 /* SectionOfCustomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOfCustomData.swift; sourceTree = "<group>"; };
 		55330F9824F7E975002D94C1 /* CustomData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomData.swift; sourceTree = "<group>"; };
+		558007352508054500EE26A7 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		568F1C194350AFB9E210ABBD /* Pods_rxSwiftTableViewTutorialTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_rxSwiftTableViewTutorialTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6029B8EE48D00E63C7CEC1CB /* Pods-rxSwiftTableViewTutorialTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rxSwiftTableViewTutorialTests.release.xcconfig"; path = "Target Support Files/Pods-rxSwiftTableViewTutorialTests/Pods-rxSwiftTableViewTutorialTests.release.xcconfig"; sourceTree = "<group>"; };
 		760CA1E304A6AC51A59C8502 /* Pods-rxSwiftTableViewTutorialTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rxSwiftTableViewTutorialTests.debug.xcconfig"; path = "Target Support Files/Pods-rxSwiftTableViewTutorialTests/Pods-rxSwiftTableViewTutorialTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				55330F8C24F7E135002D94C1 /* DefaultCell.swift */,
+				558007352508054500EE26A7 /* CustomCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			files = (
 				55330F9924F7E975002D94C1 /* CustomData.swift in Sources */,
 				55330F6C24F7DEE1002D94C1 /* ViewControllerUsingRxSwift.swift in Sources */,
+				558007362508054500EE26A7 /* CustomCell.swift in Sources */,
 				55330F8D24F7E135002D94C1 /* DefaultCell.swift in Sources */,
 				55330F6824F7DEE1002D94C1 /* AppDelegate.swift in Sources */,
 				55330F9724F7E906002D94C1 /* SectionOfCustomData.swift in Sources */,

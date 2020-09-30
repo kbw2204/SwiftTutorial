@@ -19,6 +19,7 @@ class ViewControllerUsingRxDataSource: UIViewController {
     // MARK: - Constants
     struct Reusable {
         static let defaultCell = ReusableCell<DefaultCell>()
+        static let customCell = ReusableCell<CustomCell>()
     }
     
     // MARK: - Property
@@ -28,6 +29,7 @@ class ViewControllerUsingRxDataSource: UIViewController {
     // MARK: - View
     let tableView = UITableView().then {
         $0.register(Reusable.defaultCell)
+        $0.register(Reusable.customCell)
     }
     
     // MARK: - init
@@ -66,10 +68,18 @@ class ViewControllerUsingRxDataSource: UIViewController {
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionOfCustomData>(configureCell: { dataSource, tableView, indexPath, item in
             
-            guard let cell = tableView.dequeue(Reusable.defaultCell) else { return UITableViewCell()}
-            cell.textLabel?.text = "CustomData 값의 title: \(item.title)"
-            
-            return cell
+            if indexPath.row != 0 {
+                let cell = tableView.dequeue(Reusable.defaultCell, for: indexPath)
+                cell.titleLabel.text = item.title
+                
+                return cell
+            } else {
+                let cell = tableView.dequeue(Reusable.customCell, for: indexPath)
+                cell.justLabel.text = item.title
+                cell.backgroundColor = .blue
+                
+                return cell
+            }
         })
         
         // 헤더 사용하고 싶다면 추가

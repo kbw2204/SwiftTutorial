@@ -18,6 +18,7 @@ class ViewControllerUsingRxSwift: UIViewController {
     // MARK: - Constants
     struct Reusable {
         static let defaultCell = ReusableCell<DefaultCell>()
+        static let customCell = ReusableCell<CustomCell>()
     }
     
     // MARK: - Property
@@ -27,6 +28,7 @@ class ViewControllerUsingRxSwift: UIViewController {
     // MARK: - View
     let tableView = UITableView().then {
         $0.register(Reusable.defaultCell)
+        $0.register(Reusable.customCell)
     }
     
     // MARK: - init
@@ -63,16 +65,35 @@ class ViewControllerUsingRxSwift: UIViewController {
     // MARK: - Binding
     func bindingTableView() {
         
-        Observable.just(viewModel.data)
-            .bind(to: tableView.rx.items(Reusable.defaultCell)) { _, item, cell in
-                cell.titleLabel.text = item
+//        Observable.just(viewModel.data)
+//            .bind(to: tableView.rx.items(Reusable.defaultCell)) { _, item, cell in
+//                cell.titleLabel.text = item
+//        }.disposed(by: disposeBag)
+        
+        Observable.just(viewModel.data) // 사용할 데이터
+            // 클로저를 사용해서 cell을 정의해 줍니다.
+            .bind(to: tableView.rx.items) { tableView, row, item in
+                let indexPath = IndexPath.init(item: row, section: 0)
+                
+                if row != 0 {
+                    let cell = tableView.dequeue(Reusable.defaultCell, for: indexPath)
+                    cell.titleLabel.text = item
+                    
+                    return cell
+                } else {
+                    let cell = tableView.dequeue(Reusable.customCell, for: indexPath)
+                    cell.justLabel.text = item
+                    cell.backgroundColor = .blue
+                    
+                    return cell
+                }
         }.disposed(by: disposeBag)
         
-        tableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
-                guard let self = self else { return }
-                let data = self.viewModel.data
-                print("\(indexPath.row)번째 Cell: \(data[indexPath.row])")
-            }).disposed(by: disposeBag)
+//        tableView.rx.itemSelected
+//            .subscribe(onNext: { [weak self] indexPath in
+//                guard let self = self else { return }
+//                let data = self.viewModel.data
+//                print("\(indexPath.row)번째 Cell: \(data[indexPath.row])")
+//            }).disposed(by: disposeBag)
     }
 }
